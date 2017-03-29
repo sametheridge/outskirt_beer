@@ -160,6 +160,16 @@ http://www.tooplate.com/view/2084-zipper
 
         </div>
 
+        <div class="mailing-list">
+          <a href="" class="close-popup close-cross">X</a>
+          <h1>Want updates?</h1>
+          <p>Be the first to try our new beers!</p>
+          <input type="email" />
+          <button>Cheers!</button>
+          <br />
+          <a href="" class="close-popup">Not interested!</a>
+        </div>
+
         <!-- load JS files -->
         <script src="js/jquery-1.11.3.min.js"></script>         <!-- jQuery (https://jquery.com/download/) -->
         <script src="js/tether.min.js"></script> <!-- Tether for Bootstrap (http://stackoverflow.com/questions/34567939/how-to-fix-the-error-error-bootstrap-tooltips-require-tether-http-github-h) -->
@@ -189,6 +199,15 @@ http://www.tooplate.com/view/2084-zipper
                 $(vid).on('timeupdate', function(){
                   if(vid.currentTime < 10)
                     vid.currentTime = 10;
+                });
+
+                setTimeout(function(){
+                  $('.mailing-list').slideDown();
+                }, 5000);
+
+                $('.close-popup').on('click', function(e){
+                  e.preventDefault();
+                  $('.mailing-list').slideUp();
                 });
 
                 // Single page nav
