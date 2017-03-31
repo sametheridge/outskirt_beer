@@ -8,10 +8,14 @@ http://www.tooplate.com/view/2084-zipper
 	bottom: 0;
 	right: 20px;
 	z-index: 100;
-	background: white;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 	padding: 20px;
+	display: none;
+	background: #eeed;
+}
+
+.submitted {
 	display: none;
 }
 

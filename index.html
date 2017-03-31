@@ -133,7 +133,7 @@ http://www.tooplate.com/view/2084-zipper
                         <h2 class="tm-section-title">Contact Us</h2>
 
                         <!-- contact form -->
-                        <!-- <form action="index.html" method="post" class="tm-contact-form">
+                        <form id="contact-form" action="https://hooks.zapier.com/hooks/catch/2119499/14tzia/" method="post" class="tm-contact-form">
 
                             <div class="form-group">
                                 <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Your Name"  required/>
@@ -149,8 +149,10 @@ http://www.tooplate.com/view/2084-zipper
 
                             <button type="submit" class="tm-submit-btn">Submit</button>
 
-                        </form> -->
-                        <p>Please click <a href="mailto:beer@outskirt.nz">here</a> to send us an email.</p>
+                            <p class="submitted">Thanks! We will get back to you shortly</p>
+
+                        </form>
+                        <!-- <p>Please click <a href="mailto:beer@outskirt.nz">here</a> to send us an email.</p> -->
                     </div>
                 </div>
                 <div class="tm-bg-black-translucent tm-copyright-div">
@@ -164,9 +166,13 @@ http://www.tooplate.com/view/2084-zipper
           <a href="" class="close-popup close-cross">X</a>
           <h1>Want updates?</h1>
           <p>Be the first to try our new beers!</p>
-          <input type="email" placeholder="Email address" />
-          <button>Cheers!</button>
-          <br /><br />
+          <form id="mailing-form" action="https://hooks.zapier.com/hooks/catch/2119499/14hae7/" method="post">
+            <input name="fake" type="hidden" value="bug" />
+            <input name="email" type="email" placeholder="Email address" />
+            <button>Cheers!</button>
+            <p class="submitted">Thanks! We will keep you in the loop</p>
+          </form>
+          <!-- <br /><br /> -->
           <a href="" class="close-popup">Not interested!</a>
         </div>
 
@@ -199,6 +205,37 @@ http://www.tooplate.com/view/2084-zipper
                 $(vid).on('timeupdate', function(){
                   if(vid.currentTime < 10)
                     vid.currentTime = 10;
+                });
+
+                $('#mailing-form').on('submit',function(e){
+                  e.preventDefault();
+                  var _this = this;
+                  console.log(111, $(this).serialize());
+                  $.post($(this).attr('action'), $(this).serialize()).then(
+                    function(done){
+                      console.log(22, done)
+                      setTimeout(function(){
+                        $('.mailing-list').slideUp();
+                      }, 1000);
+                      $(_this).find('.submitted').show();
+                    }, function(err){
+                      console.log(33, err)
+                    }
+                  );
+                });
+
+                $('#contact-form').on('submit',function(e){
+                  e.preventDefault();
+                  var _this = this;
+                  console.log(111, $(this).serialize());
+                  $.post($(this).attr('action'), $(this).serialize()).then(
+                    function(done){
+                      console.log(22, done)
+                      $(_this).find('.submitted').show();
+                    }, function(err){
+                      console.log(33, err)
+                    }
+                  );
                 });
 
                 setTimeout(function(){
