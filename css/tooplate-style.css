@@ -175,7 +175,7 @@ p {
 	min-height: 640px; /*for IE 11 & 10*/
 }
 
-.tm-hero-title { font-size: 3rem; }
+.tm-hero-title { font-size: 7vw; }
 .tm-hero-subtitle {
 	font-size: 1.4rem;
 	margin-bottom: 0;
@@ -309,6 +309,10 @@ p {
 	.navbar-toggleable-sm .navbar-nav {
 		margin-top: 0;
 		margin-bottom: 0;
+	}
+
+	.hero-content {
+		top: -100px;
 	}
 }
 
