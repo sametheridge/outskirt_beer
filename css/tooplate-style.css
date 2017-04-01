@@ -60,7 +60,9 @@ a:focus {
     min-height: 640px;
 }
 
-.tm-section-home { background-image: url(../img/image-01.jpg); }
+.tm-section-home {
+	background-image: url(../img/vid-bg.jpg);
+}
 .timelapse-video {
 	position: fixed;
   top: 50%;
@@ -88,7 +90,7 @@ a:focus {
 	position: relative;
 }
 .tm-section-services {
-	/*background-image: url(../img/image-03.jpg);*/
+	/*background-image: url(../img/vid-bg.jpg);*/
 	z-index: 30;
 	position: relative;
 }
